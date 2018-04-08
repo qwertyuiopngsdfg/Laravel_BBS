@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UsersRequest;
 use App\User;
 use App\Tag;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-    public function save(Request $request) {
+    public function save(UserRequest $request) {
         $user = new User();
         if ($request->name) $user->name = $request->name;
         if ($request->name) $user->title = $request->title;
