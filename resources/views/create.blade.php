@@ -6,6 +6,9 @@
 <form action="{{ url('/posts') }}" method="post">
     <form action="{{ url('/posts') }}" method="post">
         {!! csrf_field() !!}
+        <div id="app">
+                <create-tag></create-tag>
+        </div>
         <p>
             <span style="color:red; font-weight:bold">*</span><input type="text" name="skype" value="{{ old('skype') }}" placeholder="enter skypeID">
         </p>
@@ -29,4 +32,5 @@
             <input type="submit" value="submit">
         </p>
     </form>
+    <script src="{{ mix('js/app.js') }}"></script>
 @endsection

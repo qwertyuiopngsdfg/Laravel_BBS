@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="utf-8">
 		<title>@yield('title')</title>
-	<link rel="stylesheet" href="/css/styles.css">
 	</head>
 	<body>
 		<h1><a href="{{ url('/') }}">Skype BBS</a></h1>

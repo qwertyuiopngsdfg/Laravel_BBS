@@ -14,3 +14,5 @@
 Route::view('/', 'index');
 
 Route::view('/create', 'create');
+
+Route::post('/posts', 'UsersController@save');

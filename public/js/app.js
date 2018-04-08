@@ -987,7 +987,7 @@ window.Vue = __webpack_require__(35);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(38));
+Vue.component('create-tag', __webpack_require__(38));
 
 var app = new Vue({
   el: '#app'
@@ -43082,7 +43082,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
+Component.options.__file = "resources/assets/js/components/Tags.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -43091,9 +43091,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
+    hotAPI.createRecord("data-v-8609bf60", Component.options)
   } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
+    hotAPI.reload("data-v-8609bf60", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -43230,14 +43230,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    data: function data() {
+        return {
+            newItem: '',
+            todos: []
+        };
+    },
+
+
+    methods: {
+        addItem: function addItem() {
+
+            this.todos.push(this.newItem);
+            this.newItem = '';
+        },
+        deleteItem: function deleteItem(index) {
+            if (confirm('タグを削除しますか?')) {
+                this.todos.splice(index, 1);
+            }
+        }
     }
 });
 
@@ -43249,38 +43262,80 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
-              _vm._v(
-                "\n                    I'm an example component!\n                "
-              )
-            ])
-          ])
+  return _c(
+    "ul",
+    [
+      _vm._l(_vm.todos, function(todo, index) {
+        return _c("li", [
+          _vm._v("\n    " + _vm._s(todo) + "\n    "),
+          _c(
+            "span",
+            {
+              on: {
+                click: function($event) {
+                  _vm.deleteItem(index)
+                }
+              }
+            },
+            [_vm._v("[x]")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              type: "hidden",
+              name: "tags[]",
+              maxlength: "10",
+              required: ""
+            },
+            domProps: { value: todo }
+          })
         ])
-      ])
-    ])
-  }
-]
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.newItem,
+            expression: "newItem"
+          }
+        ],
+        attrs: { type: "text" },
+        domProps: { value: _vm.newItem },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.newItem = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          attrs: { id: "create_tags" },
+          on: {
+            click: function($event) {
+              _vm.addItem()
+            }
+          }
+        },
+        [_vm._v("タグを生成する。")]
+      )
+    ],
+    2
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-8609bf60", module.exports)
   }
 }
 
