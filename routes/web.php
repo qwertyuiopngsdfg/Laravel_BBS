@@ -12,3 +12,5 @@
 */
 
 Route::view('/', 'index');
+
+Route::view('/create', 'create');

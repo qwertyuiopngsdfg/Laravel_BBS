@@ -10,7 +10,7 @@
 		<p>アクティブユーザー： 10256人</p>
         <div class="menu">
             <ul>
-                <li><a href="">投稿</a></li>
+                <li><a href="{{ url('/create') }}">投稿</a></li>
                 <li><a href="">検索</a></li>
             </ul>
         </div>
