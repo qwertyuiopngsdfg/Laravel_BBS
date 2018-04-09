@@ -11,7 +11,7 @@
 |
 */
 
-Route::view('/', 'index');
+Route::get('/', 'PagesController@index');
 
 Route::view('/create', 'create');
 

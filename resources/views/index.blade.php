@@ -4,18 +4,26 @@
 
 @section('content')
 <p>記事一覧</p>
+<p>{{ $tags }}</p>
         <dl>
+            @forelse ($users as $user)
             <dt>
-                <p>name:名無しさん</p>
-                <p>skype:nanashi774</p>
+                <p>name:{{ $user->name }}</p>
+                <p>skype:{{ $user->skype }}</p>
             </dt>
             <dd>
                 <ul>
-                    <li>Tag1</li>
-                    <li>Tag2</li>
+                    @foreach ( $tags as $tag )
+                    @if ($tag->entry_id === $user->id)
+                    <li>{{ $tag->tag }}</li>
+                    @endif
+                    @endforeach
                 </ul>
-                <p>title: hello</p>
-                <p>body: hi! im qwertyuiopngsdfg!!</p>
+                <p>title: {{ $user->title }}</p>
+                <p>body: {{ $user->body }}</p>
             </dd>
+            @empty
+            <p>まだ投稿はありません。</p>
+            @endforelse
         </dl>
 @endsection

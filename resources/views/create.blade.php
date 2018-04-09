@@ -5,7 +5,6 @@
 @section('content')
 <form action="{{ url('/posts') }}" method="post">
     <form action="{{ url('/posts') }}" method="post">
-        {!! csrf_field() !!}
         <div id="app">
                 <create-tag></create-tag>
         </div>
