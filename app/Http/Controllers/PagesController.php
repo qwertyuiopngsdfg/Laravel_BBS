@@ -14,4 +14,8 @@ class PagesController extends Controller
         return view('index', ['users' => $users, 'tags' => $tags]);
     }
 
+    public function confirm(User $user) {
+        $tags = Tag::where('entry_id', $user->id)->get();
+        return view('confirm', ['user' => $user,  'tags' => $tags]);
+    }
 }

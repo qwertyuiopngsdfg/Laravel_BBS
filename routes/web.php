@@ -16,3 +16,7 @@ Route::get('/', 'PagesController@index');
 Route::view('/create', 'create');
 
 Route::post('/posts', 'UsersController@save');
+
+Route::get('/users/{user}', 'PagesController@confirm');
+
+Route::post('/delete', 'UsersController@delete' );

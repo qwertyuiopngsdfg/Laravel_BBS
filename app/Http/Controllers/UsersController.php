@@ -37,4 +37,15 @@ class UsersController extends Controller
         }
     }
 
+    public function delete(Request $request) {
+        $user = User::findOrFail($request->id);
+        if (Hash::check($request->password , $user->password)) {
+            User::destroy($user->id);
+            return redirect('/');
+        }
+            $error = 'The password is incorrect';
+            return view('confirm', ['error' => $error])->with('user', $user);
+ 
+    }
+
 }

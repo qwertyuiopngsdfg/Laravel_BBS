@@ -7,7 +7,6 @@
 	</head>
 	<body>
 		<h1><a href="{{ url('/') }}">Skype BBS</a></h1>
-		<p>アクティブユーザー： 10256人</p>
         <div class="menu">
             <ul>
                 <li><a href="{{ url('/create') }}">投稿</a></li>

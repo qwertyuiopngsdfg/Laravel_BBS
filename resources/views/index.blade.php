@@ -19,7 +19,8 @@
                     @endforeach
                 </ul>
                 <p>title: {{ $user->title }}</p>
-                <p>body: {{ $user->body }}</p>
+                {!! nl2br(e($user->body)) !!}
+                <p><a href="{{ action('PagesController@confirm', $user->id) }}">削除</a></p>
             </dd>
             @empty
             <p>まだ投稿はありません。</p>
