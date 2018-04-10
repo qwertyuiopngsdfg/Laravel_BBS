@@ -4,7 +4,6 @@
 
 @section('content')
 <p>記事一覧</p>
-<p>{{ $tags }}</p>
         <dl>
             @forelse ($users as $user)
             <dt>
