@@ -26,4 +26,5 @@
             <p>まだ投稿はありません。</p>
             @endforelse
         </dl>
+        {{ $users->links() }}
 @endsection

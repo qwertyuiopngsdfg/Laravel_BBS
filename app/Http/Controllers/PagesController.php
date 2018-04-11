@@ -9,7 +9,7 @@ use App\Tag;
 class PagesController extends Controller
 {
     public function index() {
-        $users = User::latest()->get();
+        $users = User::latest()->paginate(5);;
         $tags  = Tag::get();
         return view('index', ['users' => $users, 'tags' => $tags]);
     }

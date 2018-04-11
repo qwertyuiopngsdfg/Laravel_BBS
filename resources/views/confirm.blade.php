@@ -17,7 +17,6 @@
             </ul>
             <p>title: {{ $user->title }}</p>
             {!! nl2br(e($user->body)) !!}
-            <p><a href="{{ action('PagesController@confirm', $user->id) }}">削除</a></p>
         </dd>
      </dl>
     <form action="{{ url('/delete') }}" method="post">
